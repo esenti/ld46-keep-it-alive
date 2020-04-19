@@ -30,6 +30,7 @@
   cellSize = 4;
 
   grid = [];
+  newGrid = [];
   cellAge = [];
 
   shootInterval = 0.3;
@@ -100,12 +101,8 @@
  }
 
   step = function() {
-    newGrid = [];
-
     for (var i = 0; i < gridHeight; ++i)
     {
-      newGrid[i] = [];
-
       for (var j = 0; j < gridWidth; ++j)
       {
         if (i == 0 || j == 0 || j == gridWidth - 1) {
@@ -152,7 +149,9 @@
       }
     }
 
+    var oldGrid = grid;
     grid = newGrid;
+    newGrid = oldGrid;
  }
 
   spawn = function(type, y, x) {
@@ -320,10 +319,12 @@
     for (var i = 0; i < gridHeight; ++i)
     {
       grid[i] = [];
+      newGrid[i] = [];
       cellAge[i] = [];
       for (var j = 0; j < gridWidth; ++j)
       {
         grid[i][j] = 0;
+        newGrid[i][j] = 0;
         cellAge[i][j] = 0;
       }
     }
