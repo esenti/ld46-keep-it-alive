@@ -323,6 +323,9 @@
       }
     }
 
+    ctx.font = "100px Visitor";
+    ctx.fillText("", 0, 0);
+
     if(loading) {
       window.requestAnimationFrame(load);
     } else {
