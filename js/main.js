@@ -42,6 +42,9 @@
   toSpawn = spawnInterval;
 
   player = Math.floor(gridWidth * 0.5);
+  playerRaw = player;
+
+  playerSpeed = 50;
 
   life = 100;
 
@@ -217,11 +220,13 @@
 
     if(keysDown[65]) {
       if (player > 2) {
-        player -= Math.round(delta * 32);
+        playerRaw -= delta * playerSpeed;
+        player = Math.round(playerRaw);
       }
     } else if(keysDown[68]) {
       if (player < gridWidth - 2) {
-        player += Math.round(delta * 32);
+        playerRaw += delta * playerSpeed;
+        player = Math.round(playerRaw);
       }
     }
 
