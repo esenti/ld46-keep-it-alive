@@ -217,19 +217,19 @@
       spawn(Math.random() > 0.4 ? "MMWS" : "HWSS", 2, x);
     }
 
-    if(keysDown[65]) {
+    if(keysDown[65] || keysDown[81] || keysDown[37]) {
       if (player > 2) {
         playerRaw -= delta * playerSpeed;
         player = Math.round(playerRaw);
       }
-    } else if(keysDown[68]) {
+    } else if(keysDown[68] || keysDown[69] || keysDown[39]) {
       if (player < gridWidth - 2) {
         playerRaw += delta * playerSpeed;
         player = Math.round(playerRaw);
       }
     }
 
-    if((keysDown[66] || keysDown[32]) && toShoot <= 0) {
+    if((keysDown[87] || keysDown[38] || keysDown[90] || keysDown[188] || keysDown[32]) && toShoot <= 0) {
       console.log("Fire!");
       console.log(player);
       toShoot = shootInterval;
